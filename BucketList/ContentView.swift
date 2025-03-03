@@ -236,7 +236,6 @@ import SwiftUI
 import LocalAuthentication
 
 struct ContentView: View {
-    if viewModel.isUnlocked {
         let startPosition = MapCameraPosition.region(
             MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: 56, longitude: -3),
@@ -245,9 +244,12 @@ struct ContentView: View {
         )
         
         @State private var viewModel = ViewModel()
+        @State private var standardMode = true
         
-        
-        var body: some View {
+    var body: some View {
+        //            if viewModel.isUnlocked {
+        ZStack(alignment: .topTrailing) {
+            
             MapReader { proxy in
                 Map(initialPosition: startPosition){
                     ForEach(viewModel.locations) { location in
@@ -261,9 +263,11 @@ struct ContentView: View {
                                 .onLongPressGesture {
                                     viewModel.selectedPlace = location
                                 }
+                                
                         }
                     }
                 }
+                .mapStyle(standardMode ? .standard : .hybrid)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(at: coordinate)
@@ -275,15 +279,20 @@ struct ContentView: View {
                     }
                 }
             }
-        } else {
-            Button("Unlock places", action: viewModel.authenticate)
+            Toggle("", isOn: $standardMode)
                 .padding()
-                .background(.blue)
-                .foregroundStyle(.white)
-                .clipped(.capsule)
         }
     }
-}
+//            else {
+//                Button("Unlock places", action: viewModel.authenticate)
+//                    .padding()
+//                    .background(.blue)
+//                    .foregroundStyle(.white)
+//                    .clipShape(.capsule)
+//            }
+//        }
+    }
+
 
 #Preview {
     ContentView()
