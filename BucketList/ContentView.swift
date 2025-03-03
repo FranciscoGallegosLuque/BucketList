@@ -244,10 +244,10 @@ struct ContentView: View {
         )
         
         @State private var viewModel = ViewModel()
-        @State private var standardMode = true
+       
         
     var body: some View {
-        //            if viewModel.isUnlocked {
+                    if viewModel.isUnlocked {
         ZStack(alignment: .topTrailing) {
             
             MapReader { proxy in
@@ -267,7 +267,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .mapStyle(standardMode ? .standard : .hybrid)
+                .mapStyle(viewModel.standardMode ? .standard : .hybrid)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(at: coordinate)
@@ -279,18 +279,23 @@ struct ContentView: View {
                     }
                 }
             }
-            Toggle("", isOn: $standardMode)
+            Toggle("", isOn: $viewModel.standardMode)
                 .padding()
         }
     }
-//            else {
-//                Button("Unlock places", action: viewModel.authenticate)
-//                    .padding()
-//                    .background(.blue)
-//                    .foregroundStyle(.white)
-//                    .clipShape(.capsule)
-//            }
-//        }
+            else {
+                Button("Unlock places", action: viewModel.authenticate)
+                    .padding()
+                    .background(.blue)
+                    .foregroundStyle(.white)
+                    .clipShape(.capsule)
+                    .alert("Important message", isPresented: $viewModel.biometricError) {
+                        Button("OK", role: .cancel) { }
+                    } message: {
+                        Text("Biometric authentication error")
+                    }
+            }
+        }
     }
 
 

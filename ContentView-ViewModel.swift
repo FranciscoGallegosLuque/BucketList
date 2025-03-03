@@ -16,6 +16,8 @@ extension ContentView {
         private(set) var locations: [Location]
         var selectedPlace: Location?
         var isUnlocked = false
+        var biometricError = false
+        var standardMode = true
         
         init() {
             do {
@@ -61,11 +63,11 @@ extension ContentView {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.biometricError = true
                     }
                 }
             } else {
-                // no biometrics
+                // error
             }
             
         }
