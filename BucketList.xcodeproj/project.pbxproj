@@ -10,6 +10,7 @@
 		A10F83C02D73649D00A6E008 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F83BF2D73649D00A6E008 /* EditView.swift */; };
 		A10F83C22D75AC7600A6E008 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F83C12D75AC7600A6E008 /* Result.swift */; };
 		A10F83C42D75B79700A6E008 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F83C32D75B79700A6E008 /* ContentView-ViewModel.swift */; };
+		A10F83C62D75EF8000A6E008 /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F83C52D75EF8000A6E008 /* EditView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A10F83BF2D73649D00A6E008 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A10F83C12D75AC7600A6E008 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A10F83C32D75B79700A6E008 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		A10F83C52D75EF8000A6E008 /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -84,6 +86,7 @@
 		A10F83872D6DFE0300A6E008 = {
 			isa = PBXGroup;
 			children = (
+				A10F83C52D75EF8000A6E008 /* EditView-ViewModel.swift */,
 				A10F83C32D75B79700A6E008 /* ContentView-ViewModel.swift */,
 				A10F83BF2D73649D00A6E008 /* EditView.swift */,
 				A10F83C12D75AC7600A6E008 /* Result.swift */,
@@ -250,6 +253,7 @@
 			files = (
 				A10F83C42D75B79700A6E008 /* ContentView-ViewModel.swift in Sources */,
 				A10F83C22D75AC7600A6E008 /* Result.swift in Sources */,
+				A10F83C62D75EF8000A6E008 /* EditView-ViewModel.swift in Sources */,
 				A10F83C02D73649D00A6E008 /* EditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

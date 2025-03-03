@@ -243,7 +243,7 @@ struct ContentView: View {
             )
         )
         
-        @State private var viewModel = ViewModel()
+    @State private var viewModel = ViewModel()
        
         
     var body: some View {
@@ -267,12 +267,12 @@ struct ContentView: View {
                         }
                     }
                 }
-                .mapStyle(viewModel.standardMode ? .standard : .hybrid)
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
                         viewModel.addLocation(at: coordinate)
                     }
                 }
+                .mapStyle(viewModel.standardMode ? .standard : .hybrid)
                 .sheet(item: $viewModel.selectedPlace) { place in
                     EditView(location: place) {
                         viewModel.update(location: $0)
